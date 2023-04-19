@@ -1,0 +1,35 @@
+description:
+
+До сих пор вы добавляли свойства по prototypeотдельности:
+
+Bird.prototype.numLegs = 2;
+Это становится утомительным после более чем нескольких свойств.
+
+Bird.prototype.eat = function() {
+  console.log("nom nom nom");
+}
+
+Bird.prototype.describe = function() {
+  console.log("My name is " + this.name);
+}
+Более эффективный способ — установить prototypeновый объект, который уже содержит свойства. Таким образом, свойства добавляются все сразу:
+
+Bird.prototype = {
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+Добавьте свойство numLegsи два метода eat()и describe()к объекту prototypeof Dog, задав prototypeновый объект.
+
+
+
+tests:
+
+Dog.prototypeдолжен быть установлен на новый объект.
+Ожидание :Dog.prototypeдолжен иметь свойство numLegs.
+Ожидание :Dog.prototypeдолжен иметь метод eat().
+Ожидание :Dog.prototypeдолжен иметь метод describe().
